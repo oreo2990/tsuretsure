@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import dj_database_url
 from pathlib import Path
 # 以下、丹羽追記
 import os
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'myapp',
     'django.contrib.sites',
     'sitemanage',
+    'storages',
 ]
 
 SITE_ID = 1
@@ -129,15 +131,18 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # ログイン機能の追加
-LOGIN_URL ='myapp:login'
+LOGIN_URL = 'myapp:login'
 LOGIN_REDIRECT_URL = 'myapp:index'
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-MEDIA_URL = '/media/'
+# s3の為の記述
+AWS_LOCATION = 'media'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN , AWS_LOCATION)
 
 # herokuのための追記
-import dj_database_url
 DATABASES['default'] = dj_database_url.config()
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FOWARDED_PROTO', 'https')
@@ -157,3 +162,5 @@ except ImportError:
 
 if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
+    AWS_ACCESS_KEY_ID = os.environ['AKIA3W5GVY7CRK3AJAKE']
+    AWS_SECRET_ACCESS_KEY = os.environ['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']
