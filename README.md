@@ -6,7 +6,7 @@ https://tsuretsure.herokuapp.com/
 ###### ①画面キャプチャ
 ![](screenshot1.png "screenshot1")
 
-###### ②ジャンケンページキャプチャ
+###### ②投稿詳細ページ
 ![](screenshot2.png "screenshot2”)
 
 
