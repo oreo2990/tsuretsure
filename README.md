@@ -1,13 +1,14 @@
 # 日記投稿アプリを作成しました（制作期間5日）。
 
 Python、Django、Bootstrapを使用したくて、グーグル検索、udemy検索しながら作成しました。
+
 https://tsuretsure.herokuapp.com/
 
 ###### ①画面キャプチャ
 ![](screenshot1.png "screenshot1")
 
 ###### ②投稿詳細ページ
-![](screenshot2.png "screenshot2”)
+![](screenshot2.png "screenshot2")
 
 
 ## 使用技術
